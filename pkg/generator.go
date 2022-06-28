@@ -766,7 +766,7 @@ type {{.CallStruct}} struct {
 {{- range .Params.Params}}
 //  - {{.}} 
 {{- end}}
-func (_e *{{.ExpecterName}}) {{.MethodName}}({{range .Params.ParamsIntf}}{{.}},{{end}}) *{{.CallStruct}} {
+func (_e *{{.ExpecterName}}) {{.MethodName}}({{range .Params.Params}}{{.}},{{end}}) *{{.CallStruct}} {
 	return &{{.CallStruct}}{Call: _e.mock.On("{{.MethodName}}",
 			{{- if not .Params.Variadic }}
 				{{- range .Params.Names}}{{.}},{{end}}
